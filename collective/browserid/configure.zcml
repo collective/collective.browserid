@@ -1,0 +1,46 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="collective.browserid">
+    
+  <five:registerPackage package="." initialize=".initialize" />
+
+  <cmf:registerDirectory name="browserid"/>
+
+  <genericsetup:importStep
+      name="browserid-various"
+      title="Set up BrowserID authentication in Plone"
+      handler="collective.browserid.setuphandlers.installVarious"
+      description="Add BrowserID authentication support to Plone. This adds a new BrowserID login portlet and modifies the login form to add BrowserID support." />
+
+  <genericsetup:importStep
+      name="browserid-uninstall-various"
+      title="Tear down BrowserID authentication in Plone"
+      handler="collective.browserid.setuphandlers.uninstallVarious"
+      description="Remove BrowserID authentication support from Plone. This removes any BrowserID authentication plugins." />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="BrowserID Authentication Support"
+      description="Adds support for authenticating with BrowserID credentials in a Plone site"
+      directory="profiles/default"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="Remove BrowserID Authentication Support"
+      description="Removes support for authenticating with BrowserID credentials in a Plone site"
+      directory="profiles/uninstall"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+  <include package="plone.session" />
+  
+  <include package=".portlets" />
+  <include package=".viewlets" />
+
+</configure>

@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal">
+  <body>
+    <h1 tal:replace="structure here/manage_page_header">Header</h1>
+
+    <h2 tal:define="form_title string:Add BrowserID plugin"
+        tal:replace="structure here/manage_form_title">Form Title</h2>
+
+    <p class="form-help">
+      The BrowserID plugin adds support for the BrowserID authentication system
+      to Zope. 
+    </p>
+
+    <form action="addBrowserIdPlugin" method="post">
+      <table>
+        <tr>
+          <td class="form-label">Id</td>
+          <td><input type="text" name="id"/></td>
+        </tr>
+        <tr>
+          <td class="form-label">Title</td>
+          <td><input type="text" name="title"/></td>
+        </tr>
+        <tr>
+          <td class="form-label">Host</td>
+          <td><input type="text" name="host" tal:attributes="value modules/collective.browserid.config/DEFAULT_HOST"/></td>
+        </tr>
+        <tr>
+          <td class="form-label">Timeout</td>
+          <td><input type="text" name="timeout" tal:attributes="value modules/collective.browserid.config/DEFAULT_TIMEOUT"/></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="form-element">
+              <input type="submit" value="add BrowserId plugin"/>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

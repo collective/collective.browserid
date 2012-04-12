@@ -1,0 +1,31 @@
+<tal:block i18n:domain="collective.browserid">
+  <dl class="portlet portletBrowserIdLogin browserid-login">
+    <dt class="portletHeader">
+      <span class="portletTopLeft"></span>
+      <a href="#"
+         class="tile"
+         tal:attributes="href view/login_form"
+         i18n:translate="box_sign_in">BrowserID Login</a>
+      <span class="portletTopRight"></span>
+    </dt>
+
+    <dd class="portletItem odd">
+      <form tal:attributes="action view/login_form"
+            method="post"
+            class="browseridLoginForm">
+
+        <input type="hidden" name="form.submitted" value="1" />
+        <input type="hidden" name="came_from" value=""
+               tal:attributes="value context/@@plone_context_state/current_page_url" />
+        <input type="hidden" name="__ac_browserid_assertion" value="" />
+
+        <div class="formControls">
+          <button>
+            <img src="browserid_sign_in.png"
+                 tal:attributes="src string:${context/portal_url}/browserid_sign_in.png"/>
+          </button>
+        </div>
+      </form>
+    </dd>
+  </dl>
+</tal:block>

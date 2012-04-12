@@ -1,0 +1,5 @@
+include *.rst
+recursive-include collective *.gif
+recursive-include collective *.xml
+recursive-include collective *.zcml
+recursive-include collective *.zpt
