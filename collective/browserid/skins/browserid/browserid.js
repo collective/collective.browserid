@@ -14,6 +14,8 @@
 			navigator.id.get(gotAssertion);
 			return false;
 		});
+		
+		$('.browserid-login input[name=js_enabled]').val('1');
 	});
 	
 	// prevent FOUC

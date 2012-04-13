@@ -5,6 +5,11 @@
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="plone">
 <head>
+    <metal:js fill-slot="javascript_head_slot">
+        <script type="text/javascript" src=""
+                tal:attributes="src string:${context/portal_url}/login.js">
+        </script>
+    </metal:js>
     <metal:block fill-slot="top_slot"
                  tal:define="dummy python:request.set('disable_border',1);
                              disable_column_one python:request.set('disable_plone.leftcolumn',1);
@@ -53,6 +58,7 @@
                              value=""
                              tal:attributes="value came_from" />
                      <input type="hidden" name="__ac_browserid_assertion" value="" />
+                     <input type="hidden" name="js_enabled" value="0" />
 
 				      <div class="formControls">
 				        <button>
