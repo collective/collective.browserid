@@ -1,3 +1,10 @@
-.portletBrowserIdLogin {
+/* If no Javascript, hide all BrowserID stuff */
+.browserid-login {
 	display: none;
+}
+
+.browserid-login button {
+	border: 0;
+	background: transparent;
+	cursor: pointer;
 }
