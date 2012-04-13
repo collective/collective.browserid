@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<object>
-  <order manager="plone.htmlhead" skinname="*">
-    <viewlet name="collective.browserid.browserid_js"
-             remove="True" />
-  </order>
-</object>
