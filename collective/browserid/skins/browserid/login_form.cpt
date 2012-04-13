@@ -50,7 +50,8 @@
 
                     <form tal:attributes="action python:context.absolute_url()+'/'+template.id"
                           class="enableAutoFocus"
-                          method="post">
+                          method="post"
+                          tal:condition="python:auth">
 
                      <input type="hidden" name="form.submitted" value="1" />
                      <input type="hidden"
