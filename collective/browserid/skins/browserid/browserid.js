@@ -10,12 +10,13 @@
 	
 	$(function() {
 		// onload
-		$('.browserid-login button').click(function() {
+		
+		$('body').delegate('.browserid-login button', 'click', function() {
 			navigator.id.get(gotAssertion);
 			return false;
 		});
 		
-		$('.browserid-login input[name=js_enabled]').val('1');
+		$('body').delegate('.browserid-login input[name=js_enabled]', 'load', function() { $(this).val('1');});
 	});
 	
 	// prevent FOUC
