@@ -1,7 +1,18 @@
 from StringIO import StringIO
+
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.interfaces import INonInstallable as INonInstallableProfiles
+from zope.interface import implements
 
 from collective.browserid.config import PLUGIN_META_TYPE
+
+
+class HiddenProfiles(object):
+    implements(INonInstallableProfiles)
+
+    def getNonInstallableProfiles(self):
+        return ['collective.browserid:uninstall',
+                ]
 
 
 def hasBrowserIdPlugin(portal):

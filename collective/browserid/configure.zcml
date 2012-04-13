@@ -43,4 +43,10 @@
   <include package=".portlets" />
   <include package=".viewlets" />
 
+  <!-- Hide the uninstall profile, otherwise it shows up as an install
+       option when creating a new Plone site.
+  -->
+  <utility factory=".setuphandlers.HiddenProfiles"
+           name="collective.browserid" />
+
 </configure>
