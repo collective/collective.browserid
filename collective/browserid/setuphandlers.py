@@ -45,7 +45,6 @@ def activatePlugin(portal, out, plugin):
 def deactivatePlugins(portal, out, plugin_meta_type):
     acl=getToolByName(portal, "acl_users")
     for plugin in acl.objectValues(plugin_meta_type):
-        plugin=getattr(acl, plugin)
         for info in acl.plugins.listPluginTypeInfo():
             interface=info["interface"]
             interface_name=info["id"]
