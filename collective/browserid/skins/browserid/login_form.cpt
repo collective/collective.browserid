@@ -42,11 +42,11 @@
         <dl class="enableFormTabbing">
 
             <tal:browserid condition="context/hasBrowserIdExtractor">
-                <dt id="fieldsetlegend" class="browserid-login" i18n:translate="legend_browserid">
+                <dt id="fieldsetlegend-browserid-login" class="browserid-login" i18n:translate="legend_browserid">
                     BrowserID login
                 </dt>
 
-                <dd id="fieldset" class="browserid-login">
+                <dd id="fieldset-browserid-login" class="browserid-login">
 
                     <form tal:attributes="action python:context.absolute_url()+'/'+template.id"
                           class="enableAutoFocus"
